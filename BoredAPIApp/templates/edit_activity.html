@@ -1,0 +1,15 @@
+<!-- boredapi_app/templates/edit_activity.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Activity</title>
+</head>
+<body>
+    <h1>Edit Activity</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+    </form>
+</body>
+</html>

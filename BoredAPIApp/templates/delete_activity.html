@@ -1,0 +1,13 @@
+<!-- delete_activity.html -->
+
+<h2>Confirm Activity Deletion</h2>
+
+<p>Are you sure you want to delete the following activity?</p>
+<p>Name: {{ activity.name }}</p>
+<p>Activity Type: {{ activity.activity_type }}</p>
+
+<form method="post" action="{% url 'delete_activity' activity.id %}">
+  {% csrf_token %}
+  <input type="hidden" name="user_email" value="{{ request.GET.user_email }}">
+  <button type="submit">Delete</button>
+</form>

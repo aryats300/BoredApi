@@ -1,0 +1,16 @@
+<!-- update_activity.html -->
+
+<form method="post" action="{% url 'update_activity' activity.id %}">
+  {% csrf_token %}
+  <input type="hidden" name="user_email" value="{{ request.GET.user_email }}">
+  <label for="name">Name:</label>
+  <input type="text" name="name" value="{{ activity.name }}" required>
+  <br>
+  <label for="activity_type">Activity Type:</label>
+  <input type="text" name="activity_type" value="{{ activity.activity_type }}" required>
+  <br>
+  <button type="submit">Update Activity</button>
+  {% if error %}
+    <p>{{ error }}</p>
+  {% endif %}
+</form>

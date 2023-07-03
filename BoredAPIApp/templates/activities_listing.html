@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Activities Listing</title>
+</head>
+<body>
+    <h1>Activities Listing</h1>
+    {% for activity in activities_page %}
+        <h3>{{ activity.name }}</h3>
+        <p>{{ activity.description }}</p>
+        <!-- Add other activity details -->
+        <hr>
+    {% endfor %}
+
+    <div class="pagination">
+        {% if activities_page.has_previous %}
+            <a href="?page={{ activities_page.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        {% for num in activities_page.paginator.page_range %}
+            {% if num == activities_page.number %}
+                <span class="current-page">{{ num }}</span>
+            {% else %}
+                <a href="?page={{ num }}">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if activities_page.has_next %}
+            <a href="?page={{ activities_page.next_page_number }}">Next</a>
+        {% endif %}
+    </div>
+</body>
+</html>

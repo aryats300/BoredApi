@@ -1,0 +1,14 @@
+<!-- boredapi_app/templates/view_activity.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Activity</title>
+</head>
+<body>
+    <h1>View Activity</h1>
+    <h3>{{ activity.name }}</h3>
+    <p>{{ activity.description }}</p>
+    <!-- Add other activity details -->
+    <a href="{% url 'delete_activity' activity.id %}">Delete Activity</a>
+</body>
+</html>

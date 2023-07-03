@@ -1,0 +1,27 @@
+<!-- activities/templates/register.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+</head>
+<body>
+    <h1>User Registration</h1>
+    <form method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="activity_type">Activity Type:</label>
+        <select id="activity_type" name="activity_type" required>
+            {% for activity_type, activity_label in activity_types %}
+                <option value="{{ activity_type }}">{{ activity_label }}</option>
+            {% endfor %}
+        </select>
+        
+        <br><br>
+
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
